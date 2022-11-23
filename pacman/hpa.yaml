@@ -3,12 +3,10 @@ kind: HorizontalPodAutoscaler
 metadata:
   creationTimestamp: "2022-11-23T13:19:40Z"
   name: php-apache
-  namespace: pacman-argo
   resourceVersion: "3721"
   uid: abbbcad7-edec-4a99-a525-9e5dde0dc241
 spec:
   maxReplicas: 5
-
   minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
