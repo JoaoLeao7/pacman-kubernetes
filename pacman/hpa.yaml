@@ -9,10 +9,16 @@ spec:
   maxReplicas: 5
   minReplicas: 1
   scaleTargetRef:
-    apiVersion: v1
-    kind: Service
-    name: argocd-server-metrics
-  targetCPUUtilizationPercentage: 1
+    apiVersion: apps/v1
+    kind: Deployment
+    name: pacman-deployment
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 10
 status:
   currentReplicas: 0
   desiredReplicas: 0
