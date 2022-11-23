@@ -1,11 +1,12 @@
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  creationTimestamp: "2022-11-23T13:19:40Z"
-  name: php-apache
-  resourceVersion: "3721"
-  uid: abbbcad7-edec-4a99-a525-9e5dde0dc241
+  creationTimestamp: null
+  name: pacman
 spec:
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 20
   maxReplicas: 5
   minReplicas: 1
   scaleTargetRef:
@@ -20,5 +21,5 @@ spec:
         type: Utilization
         averageUtilization: 10
 status:
-  currentReplicas: 0
-  desiredReplicas: 0
+  currentReplicas: 3
+  desiredReplicas: 3
